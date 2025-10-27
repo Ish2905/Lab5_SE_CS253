@@ -16,17 +16,25 @@ def removeItem(item, qty):
         stock_data[item] -= qty
         if stock_data[item] <= 0:
             del stock_data[item]
-    except KeyError:
-        print(f"Warning: Item '{item}' not found, cannot remove.")
+    except KeyError: #FIX 3: KeyError
+        print(f"Warning: Item '{item}' not found, cannot remove.") 
 
 def getQty(item):
     return stock_data[item]
 
-def loadData(file="inventory.json"):
-    f = open(file, "r")
-    global stock_data
-    stock_data = json.loads(f.read())
-    f.close()
+def loadData(file="inventory.json"): #FIX 4: using with 
+    try:
+        with open(file, "r") as f:
+            global stock_data
+            stock_data = json.load(f) # Use json.load(f) for file objects
+    except FileNotFoundError:
+        print(f"Warning: '{file}' not found. Starting with empty inventory.")
+        global stock_data
+        stock_data = {}
+    except json.JSONDecodeError:
+        print(f"Error: Could not decode '{file}'. Starting with empty inventory.")
+        global stock_data
+        stock_data = {}
 
 def saveData(file="inventory.json"):
     f = open(file, "w")
