@@ -37,9 +37,8 @@ def loadData(file="inventory.json"): #FIX 4: using with
         stock_data = {}
 
 def saveData(file="inventory.json"):
-    f = open(file, "w")
-    f.write(json.dumps(stock_data))
-    f.close()
+    with open(file, "w") as f:
+        json.dump(stock_data, f, indent=4) # FIX 5: USE WITH
 
 def printData():
     print("Items Report")
