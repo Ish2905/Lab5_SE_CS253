@@ -56,6 +56,6 @@ def main():
     saveData()
     loadData()
     printData()
-    eval("print('eval used')")  # dangerous
-
+    # eval("print('eval used')")  # FIX 1: REMOVED THIS LINE FOR SECURITY ISSUE.
+    print("\nInventory check complete.")
 main()
