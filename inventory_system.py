@@ -1,28 +1,25 @@
-import json
-#import logging #FIX 6: UNUSED IMPORT 
+import json # import logging #FIX 6: UNUSED IMPORT 
 from datetime import datetime
 
 # Global variable
 stock_data = {}
 
-def addItem(item="default", qty=0): #FIX 2: REMOVE logs=[]
+def addItem(item="default", qty=0): # FIX 2: REMOVE logs=[]
     if not item:
         return
-    stock_data[item] = stock_data.get(item, 0) + qty
-    #logs.append("%s: Added %d of %s" % (str(datetime.now()), qty, item)) 
-
+    stock_data[item] = stock_data.get(item, 0) + qty   # logs.append("%s: Added %d of %s" % (str(datetime.now()), qty, item)) 
 def removeItem(item, qty):
     try:
         stock_data[item] -= qty
         if stock_data[item] <= 0:
             del stock_data[item]
-    except KeyError: #FIX 3: KeyError
+    except KeyError: # FIX 3: KeyError
         print(f"Warning: Item '{item}' not found, cannot remove.") 
 
 def getQty(item):
-    return stock_data.get(item, 0) #FIX 7
+    return stock_data.get(item, 0) # FIX 7
 
-def loadData(file="inventory.json"): #FIX 4: using with 
+def loadData(file="inventory.json"): # FIX 4: using with 
     try:
         with open(file, "r") as f:
             global stock_data

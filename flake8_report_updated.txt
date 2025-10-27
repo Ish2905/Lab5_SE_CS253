@@ -1,0 +1,25 @@
+inventory_system.py:1:12: E261 at least two spaces before inline comment
+inventory_system.py:1:51: W291 trailing whitespace
+inventory_system.py:2:1: F401 'datetime.datetime' imported but unused
+inventory_system.py:7:1: E302 expected 2 blank lines, found 1
+inventory_system.py:7:36: E261 at least two spaces before inline comment
+inventory_system.py:10:80: E501 line too long (125 > 79 characters)
+inventory_system.py:10:126: W291 trailing whitespace
+inventory_system.py:11:1: E302 expected 2 blank lines, found 0
+inventory_system.py:16:21: E261 at least two spaces before inline comment
+inventory_system.py:17:67: W291 trailing whitespace
+inventory_system.py:19:1: E302 expected 2 blank lines, found 1
+inventory_system.py:20:35: E261 at least two spaces before inline comment
+inventory_system.py:22:1: E302 expected 2 blank lines, found 1
+inventory_system.py:22:37: E261 at least two spaces before inline comment
+inventory_system.py:22:57: W291 trailing whitespace
+inventory_system.py:26:38: E261 at least two spaces before inline comment
+inventory_system.py:32:80: E501 line too long (82 > 79 characters)
+inventory_system.py:36:1: E302 expected 2 blank lines, found 1
+inventory_system.py:38:43: E261 at least two spaces before inline comment
+inventory_system.py:40:1: E302 expected 2 blank lines, found 1
+inventory_system.py:45:1: E302 expected 2 blank lines, found 1
+inventory_system.py:52:1: E302 expected 2 blank lines, found 1
+inventory_system.py:63:80: E501 line too long (80 > 79 characters)
+inventory_system.py:65:1: E305 expected 2 blank lines after class or function definition, found 0
+inventory_system.py:65:7: W292 no newline at end of file
