@@ -20,7 +20,7 @@ def removeItem(item, qty):
         print(f"Warning: Item '{item}' not found, cannot remove.") 
 
 def getQty(item):
-    return stock_data[item]
+    return stock_data.get(item, 0) #FIX 7
 
 def loadData(file="inventory.json"): #FIX 4: using with 
     try:
