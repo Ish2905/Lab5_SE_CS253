@@ -12,20 +12,20 @@
 
 Here are my answers for the reflection.md file:
 
-1. Which issues were the easiest to fix, and which were the hardest? Why?
+**1. Which issues were the easiest to fix, and which were the hardest? Why?**
 
 Easiest: The easiest fixes were definitely deleting the eval() function and the unused import logging. They were just single lines to remove, and it was obvious why they were bad (one was a huge security risk, the other was just clutter).
 
 Hardest: The hardest one to understand was the logs=[] (mutable default argument) issue. It's not a syntax error, so it looked fine. I had to understand the concept that the list is created only once, which is a weird Python thing. The fixes for loadData and saveData were also a bit harder because I had to rewrite several lines to use the with open... and try...except structure instead of just changing one word.
 
 
-2. Did the static analysis tools report any false positives? If so, describe one example.
+**2. Did the static analysis tools report any false positives? If so, describe one example.**
 I didn't really see any false positives for the big issues. Everything the tools flagged, like the eval() , the bare except , and the mutable default argument, was a real problem that made the code buggy or insecure.
 
 
-Pylint might have flagged other minor things, like using global stock_data, but in a small script like this, it's not really a false positive, just a style guideline that I chose to use. So for this lab, no, all the main warnings were valid.
+Pylint might have flagged other minor things, like using global stock_data, but in a small script like this, it's not really a false positive, just a style guideline that I chose to use. So for this lab, no, all the main warnings were valid. All the main issues were removed.
 
-3. How would you integrate static analysis tools into your actual software development workflow?
+**3. How would you integrate static analysis tools into your actual software development workflow?**
 I'd use them in two main places:
 
 Locally: I would set up a pre-commit hook. This would automatically run Flake8  (for style) and Bandit  (for security) every time I try to git commit. It would stop me from committing messy or insecure code in the first place.
@@ -33,8 +33,7 @@ Locally: I would set up a pre-commit hook. This would automatically run Flake8  
 
 In CI (Continuous Integration): I would set up a GitHub Actions workflow. This would run all the tools (Pylint, Flake8, Bandit) automatically every time someone pushes code to the repository. If any tool finds a high-severity issue, the build would fail, and it would block the bad code from being merged into the main branch.
 
-4. What tangible improvements did you observe in the code quality, readability, or potential robustness after applying the fixes?
-The code is so much better now.
+**4. What tangible improvements did you observe in the code quality, readability, or potential robustness after applying the fixes?**
 
 Robustness: This is the biggest win. The app won't crash anymore if I ask for an item that isn't in stock (from fixing getQty) or if the inventory.json file is missing (from fixing loadData).
 
