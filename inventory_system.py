@@ -1,5 +1,5 @@
 import json
-import logging
+#import logging #FIX 6: UNUSED IMPORT 
 from datetime import datetime
 
 # Global variable
