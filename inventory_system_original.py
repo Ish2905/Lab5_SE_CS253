@@ -5,11 +5,11 @@ from datetime import datetime
 # Global variable
 stock_data = {}
 
-def addItem(item="default", qty=0): #FIX 2: REMOVE logs=[]
+def addItem(item="default", qty=0, logs=[]):
     if not item:
         return
     stock_data[item] = stock_data.get(item, 0) + qty
-    #logs.append("%s: Added %d of %s" % (str(datetime.now()), qty, item)) 
+    logs.append("%s: Added %d of %s" % (str(datetime.now()), qty, item))
 
 def removeItem(item, qty):
     try:
@@ -56,6 +56,6 @@ def main():
     saveData()
     loadData()
     printData()
-    # eval("print('eval used')")  # FIX 1: REMOVED THIS LINE FOR SECURITY ISSUE.
-    print("\nInventory check complete.")
+    eval("print('eval used')")  # dangerous
+
 main()
